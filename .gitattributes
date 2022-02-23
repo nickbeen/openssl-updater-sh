@@ -1,0 +1,14 @@
+# Automatically normalize line endings
+*                  text=auto
+
+# Explicitly set diffs
+*.md               diff=markdown
+
+# Shell scripts require LF line endings
+*.sh               text eol=lf
+
+# Ignore all test and documentation
+/.editorconfig     export-ignore
+/.gitattributes    export-ignore
+/.github           export-ignore
+/.gitignore        export-ignore
