@@ -24,7 +24,7 @@ OpenSSL libraries can be found at [www.openssl.org](https://www.openssl.org/sour
 
 ## Installation
 
-Clone this repository in the folder where you want to save your custom OpenSSL installations.
+Clone this repository in the folder where you want to save your custom OpenSSL installations. Be sure to give the user of the shell script execution rights.
 
 ## Usage
 
