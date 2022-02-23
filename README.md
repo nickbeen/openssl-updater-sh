@@ -22,6 +22,10 @@ OpenSSL libraries can be found at [www.openssl.org](https://www.openssl.org/sour
 - Tar (preinstalled on most Linux distributions)
 - Wget (preinstalled on most Linux distributions)
 
+## Installation
+
+Clone this repository in the folder where you want to save your custom OpenSSL installations.
+
 ## Usage
 
 For help instruction:
