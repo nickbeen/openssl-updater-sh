@@ -10,7 +10,7 @@ if [ -z "$1" ]; then
   exit 1
 else
   if [[ "$1" != *.tar.gz ]]; then
-    echo "[X] ERROR: Link is not an ${openssl}{version}.tar.gz file"
+    echo "[X] ERROR: Resource is not a tar.gz file"
     exit 1
   fi
 fi
@@ -24,7 +24,7 @@ wget --no-clobber --output-document="${file}" --quiet "$1"
 if [ $? -eq 0 ]; then
   echo "[V] Downloaded ${file}"
 else
-   echo "[X] ERROR: Cannot download ${file} file"
+   echo "[X] ERROR: Cannot download ${file}"
    exit 1
 fi
 
@@ -34,7 +34,7 @@ tar --extract --file "${file}" --gzip --one-top-level
 if [ $? -eq 0 ]; then
   echo "[V] Unpacked ${file}"
 else
-  echo "[X] ERROR: Cannot unpack ${file} file"
+  echo "[X] ERROR: Cannot unpack ${file}"
   exit 1
 fi
 
@@ -42,12 +42,12 @@ fi
 directory="$(basename "$1" .tar.gz)"
 
 # Create or update symlink
-ln --force --no-dereference --symbolic "${directory}" "$openssl"
+ln --force --no-dereference --symbolic "${directory}" "${openssl}"
 
 if [ $? -eq 0 ]; then
   echo "[V] Updated ${openssl} symlink"
 else
-  echo "[X] ERROR: Cannot overwrite ${openssl} symlink"
+  echo "[X] ERROR: Cannot update ${openssl} symlink"
   exit 1
 fi
 
@@ -57,6 +57,6 @@ unlink "${file}"
 if [ $? -eq 0 ]; then
   echo "[V] Removed ${file}"
 else
-  echo "[X] ERROR: Cannot delete ${file}"
+  echo "[X] ERROR: Cannot remove ${file}"
   exit 1
 fi
